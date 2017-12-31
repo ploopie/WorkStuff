@@ -1,0 +1,951 @@
+Option Explicit
+
+Public Sub CopyTravel()
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Travel) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Travel) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Travel").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Travel) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Travel) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Travel"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyDurables()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Durables) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+Application.Workbooks("SK Tool - (New) " & "(Durables) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Durables").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Durables) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Durables) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Durables (white goods)"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+
+Public Sub CopyEducation()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Education) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Education) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Education").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Education) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Education) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Education"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyFMCG()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(FMCG) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(FMCG) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("FMCG").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (FMCG) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (FMCG) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "FMCG"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyFashion()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Fashion) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Fashion) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Fashion").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Fashion) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Fashion) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Fashion & Beauty"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyGovernment()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Government) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Government) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Government").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Government) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Government) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Government"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyMLE()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(MLE) " & "20171217.xlsm"
+
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(MLE) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("MLE").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (MLE) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (MLE) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Media, Leisure & Entertainment"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyBFI()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(BFI) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(BFI) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("BFI").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (BFI) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (BFI) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Banking and Finance"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyProperty()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Property) " & "20171217.xlsm"
+
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Property) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Property").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Property) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Property) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Property"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyRetail()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(Retail) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(Retail) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("Retail").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (Retail) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (Retail) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Retail"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyTelcoIT()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(TelcoIT) " & "20171217.xlsm"
+
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(TelcoIT) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("TelcoIT").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (TelcoIT) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (TelcoIT) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Telco, IT and Office Equipment"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
+
+Public Sub CopyTPI()
+
+' DECLARE SOURCE AND TARGET VARIABLES
+Dim wkbSource As Workbook
+Dim wksSource As Worksheet
+Dim rngSource As Range
+Dim wkbTarget As Workbook
+Dim wksTarget As Worksheet
+Dim rngTarget As Range
+Dim strPath As String
+Const strMASTER As String = "\Sector Tools\SK Tool - (New) (Master) 20171217.xlsm"
+
+
+' OPEN SOURCE WORKBOOK
+Let strPath = Application.ThisWorkbook.Path & strMASTER
+Set wkbSource = Application.Workbooks.Open(Filename:=strPath)
+
+' CREATE SECTOR TOOL
+wkbSource.SaveAs "SK Tool - (New) " & "(TPI) " & "20171217.xlsm"
+
+' REPLACEMENT OF PAST ADVERTISER DATA WITH SECTOR-SPECIFIC DATA
+
+Application.Workbooks("SK Tool - (New) " & "(TPI) " & "20171217.xlsm").Sheets("a1. Past Data Advertiser").Select
+Range("A4").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Clear
+
+Windows("SectorAdvertisersList.xlsm").Activate
+Sheets("TPI").Select
+Range("A1").Select
+Range(Selection, Selection.End(xlToRight).End(xlDown)).Select
+Selection.Copy
+Windows("SK Tool - (New) (TPI) 20171217.xlsm").Activate
+Range("A4").Select
+ActiveWindow.SmallScroll Down:=-12
+Range("A4").Select
+ActiveSheet.Paste
+
+' REPLACEMENT OF CUSTOMER INFO SHEET SECTOR DETAILS
+Windows("SK Tool - (New) (TPI) 20171217.xlsm").Activate
+Sheets("A. Customer Info").Select
+Range("S13").Select
+ActiveCell.FormulaR1C1 = "Transport, Petrochemical, Industrial"
+Range("S14:S24").Select
+Selection.ClearContents
+Range("F8").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$G$8:$H$8"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Range("F19").Select
+With Selection.Validation
+        .Delete
+        .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+        xlBetween, Formula1:="=$S$13"
+        .IgnoreBlank = True
+        .InCellDropdown = True
+        .InputTitle = ""
+        .ErrorTitle = ""
+        .InputMessage = ""
+        .ErrorMessage = ""
+        .ShowInput = True
+        .ShowError = True
+End With
+Columns("R:T").Select
+Range("T1").Activate
+Selection.EntireColumn.Hidden = True
+
+End Sub
