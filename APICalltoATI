@@ -7,14 +7,14 @@ import requests
 url = "https://apirest.atinternet-solutions.com/data/v2/json/getData"
 
 headers = {
-    'authorization': "Basic dGF5cWxAc3BoLmNvbS5zZzp0cWw2MzMzRyE="
+    'authorization': "Basic BAST64AUTH"
     }
 
 nb_results = 500
-file = open("C:\\Users\\Mulucommand\\Data\\MyRawData.json", "w", encoding='utf8')
+file = open("C:\\Users\\MYCOM\\Data\\MyRawData.json", "w", encoding='utf8')
 
 for page in range(1, 5):
-    querystring = {"columns": "{d_time_date,m_clicks,CM_55041,CM_56711}", "sort": "{-d_time_date}", "space": '{s:538460}',
+    querystring = {"columns": "{d_time_date,m_clicks,CM_55041,CM_56711}", "sort": "{-d_time_date}", "space": '{s:SPACE}',
                    "period": "{R:{M:{start:-12,end:-1}}}", "max-results":nb_results, "page-num":1}
     response = requests.request("GET", url, headers=headers, params=querystring)
     jresponse = response.json()
@@ -28,7 +28,7 @@ x = 0
 data = jresponse['DataFeed'][0]['Rows'][x]
 data2 = jresponse['DataFeed'][0]['Rows']
 
-outfile = open("C:\\Users\\Mulucommand\\Data\\MyRawData.csv", 'w', newline='')
+outfile = open("C:\\Users\\MYCOM\\Data\\MyRawData.csv", 'w', newline='')
 
 csvwriter = csv.writer(outfile)
 
